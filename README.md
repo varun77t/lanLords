@@ -47,3 +47,98 @@ The **LAN LORDS** project is a customer complaint processing system designed to 
 - **Text Models**: CLIP, Random Forests.
 - **OCR**: Tesseract OCR.
 - **Predictive Model**: XGBoost.
+
+## Project Structure
+
+```
+lannn/
+├── final-1711/
+│   ├── backend/              # Node.js Express server
+│   │   ├── index.js
+│   │   ├── package.json
+│   │   ├── controllers/      # Request handlers
+│   │   ├── models/           # Database schemas
+│   │   ├── routes/           # API endpoints
+│   │   └── s3Upload.js       # AWS S3 integration
+│   │
+│   ├── frontend/             # React-based UI
+│   │   ├── src/
+│   │   │   ├── Components/   # React components
+│   │   │   ├── App.js
+│   │   │   └── i18n.js       # Multilingual support
+│   │   └── package.json
+│   │
+│   └── mlApi/                # ML model endpoints
+│       ├── audio.py
+│       ├── video.py
+│       └── codebase.py
+│
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js v14+
+- Python 3.8+
+- MongoDB
+- AWS S3 Account (for media storage)
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/varun77t/lanLords.git
+   cd lanLords/final-1711
+   ```
+
+2. **Setup Backend**
+   ```bash
+   cd backend
+   npm install
+   cp .env.example .env  # Configure your environment variables
+   npm start
+   ```
+
+3. **Setup Frontend**
+   ```bash
+   cd ../frontend
+   npm install
+   npm start
+   ```
+
+4. **Setup ML API**
+   ```bash
+   cd ../mlApi
+   pip install -r requirements.txt
+   python test_main.py
+   ```
+
+## Environment Variables
+
+Create a `.env` file in the backend directory with:
+```
+MONGODB_URI=your_mongodb_connection_string
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=your_aws_region
+PORT=5000
+```
+
+## Features in Action
+
+- **Upload Complaints**: Submit complaints via image, audio, or video
+- **AI Processing**: Automatic classification using ML models
+- **Real-time Tracking**: Monitor complaint status in real-time
+- **Multilingual Support**: Available in English, Hindi, and Kannada
+- **Predictive Analytics**: Identify recurring issues
+- **Admin Dashboard**: Comprehensive complaint management
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests with improvements.
+
+## License
+
+This project is licensed under the MIT License - see LICENSE file for details.
